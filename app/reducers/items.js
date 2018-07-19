@@ -1,9 +1,11 @@
+import * as ActionTypes from '../actions/ActionTypes';
+
 // Start the sequence of item ID's at 0
 let nextItemId = 0;
 
 const items = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_ITEM': {
+    case ActionTypes.ADD_ITEM: {
       console.log('... state', state);
       return [
         ...state,
@@ -14,7 +16,7 @@ const items = (state = [], action) => {
         }
       ];
     }
-    case 'REMOVE_ITEM': {
+    case ActionTypes.REMOVE_ITEM: {
       // Find index of item with matching ID and then
       // remove it from the array by its' index
       const index = state.findIndex(x => x.id === action.id);

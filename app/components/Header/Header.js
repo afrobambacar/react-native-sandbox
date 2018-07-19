@@ -8,14 +8,14 @@ import styles from './styles';
 class Header extends Component {
   constructor(props) {
     super(props);
-    console.log('... props', props);
+
     this.handleCreateItem = this.handleCreateItem.bind(this);
     this.randomizeItemData = this.randomizeItemData.bind(this);
   }
 
   handleCreateItem() {
     const randomizeItemData = this.randomizeItemData();
-
+    console.log('... ADD_ITEM', randomizeItemData);
     this.props.dispatch({ type: 'ADD_ITEM', ...randomizeItemData });
   }
 

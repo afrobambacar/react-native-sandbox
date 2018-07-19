@@ -6,6 +6,7 @@ import FBLogin from '../screens/FBLogin';
 import Random from '../screens/Random';
 import Counter from '../screens/Counter';
 import Reddit from '../screens/Reddit';
+import Googoodan from '../screens/Googoodan';
 
 export default createStackNavigator({
   Home: {
@@ -40,5 +41,14 @@ export default createStackNavigator({
   },
   Reddit: {
     screen: Reddit,
+    navigationOptions: {
+      headerTitle: 'Reddit API'
+    }
+  },
+  Googoodan: {
+    screen: Googoodan,
+    navigationOptions: {
+      headerTitle: '아빠수학'
+    }
   }
 });

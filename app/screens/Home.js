@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
+import Quiz from '../actions/Quiz';
+import QuizList from '../components/QuizList';
 
 class Home extends Component {
   render () {
@@ -25,6 +27,12 @@ class Home extends Component {
           title="Reddit"
           onPress={() => this.props.navigation.navigate('Reddit')}
         />
+        <Button
+          title="Googoodan"
+          onPress={() => this.props.navigation.navigate('Googoodan')}
+        />
+        <Quiz />
+        <QuizList />
       </View>
     );
   }

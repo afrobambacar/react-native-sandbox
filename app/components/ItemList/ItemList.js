@@ -9,7 +9,7 @@ import Item from '../Item';
 class ItemList extends Component {
   constructor(props) {
     super(props);
-    
+    console.log('.... ', this.props);
     this.handleDestroyItem = this.handleDestroyItem.bind(this);
   }
 
@@ -36,10 +36,12 @@ class ItemList extends Component {
   }
 }
 
+// It's okay this is in construction.
 const dataSource = new ListView.DataSource({
   rowHasChanged: (r1, r2) => r1 !== r2
 });
 
+// This will move to actions directory
 function mapStateToProps(state) {
   return {
     dataSource: dataSource.cloneWithRows(state.items)

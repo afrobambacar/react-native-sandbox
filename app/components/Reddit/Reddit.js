@@ -25,7 +25,7 @@ class Reddit extends Component {
     if (nextProps.data !== null) {
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(nextProps.data)
-      })
+      });
     }
 
     if (nextProps.error !== undefined) {
@@ -52,6 +52,19 @@ class Reddit extends Component {
   render() {
     const { dataSource, isLoading } = this.state;
 
+    if (this.props.isLoading) {
+      return (
+        <View style={styles.container}>
+          <ActivityIndicator
+            animating={this.props.isLoading}
+            style={[styles.centering, { height: 80 }]}
+            size='small'
+            color='#0000ff'
+          />
+        </View>
+      );
+    } 
+
     return (
       <View style={styles.container}>
         <ListView
@@ -59,12 +72,6 @@ class Reddit extends Component {
           enableEmptySections={true}
           dataSource={dataSource}
           renderRow={(rowData) => this.renderCell(rowData)}
-        />
-        <ActivityIndicator
-          animating={this.props.isLoading}
-          style={[styles.centering, { height: 80 }]}
-          size='large'
-          color='#0000ff'
         />
       </View>
     );
